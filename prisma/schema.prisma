@@ -17,7 +17,7 @@ model User {
   name      String
   posts     Post[]
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 
   @@map("users")
 }
@@ -28,7 +28,7 @@ model Post {
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  String   @db.ObjectId
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 
   @@map("posts")
 }
