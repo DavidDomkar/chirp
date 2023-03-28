@@ -16,6 +16,16 @@ export default defineEventHandler(async (event) => {
     }),
   );
 
+  const user = await prisma.user.findUnique({
+    where: {
+      username: username.toLowerCase(),
+    },
+  });
+
+  if (user) {
+    throw createError({ statusCode: 409, statusMessage: 'This username is already taken!' });
+  }
+
   const hashedPassword = await hash(password, 12);
 
   await prisma.user.create({
