@@ -7,7 +7,7 @@
 module.exports = {
   plugins: [require.resolve('@prettier/plugin-pug')],
   tabWidth: 2,
-  printWidth: 120,
+  printWidth: 80,
   singleQuote: true,
   semi: true,
   pugSingleQuote: true,

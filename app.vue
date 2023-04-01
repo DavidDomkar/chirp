@@ -1,5 +1,5 @@
-<template>
-  <div>
-    <NuxtWelcome />
-  </div>
+<template lang="pug">
+NuxtLayout
+  NuxtPage
+  Snackbar
 </template>

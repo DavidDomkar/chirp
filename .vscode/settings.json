@@ -1,0 +1,6 @@
+{
+  "editor.showUnused": false,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}

@@ -18,6 +18,8 @@ module.exports = {
   },
   plugins: ['vue', '@typescript-eslint'],
   rules: {
+    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    'vue/multi-word-component-names': 'off',
   },
 };

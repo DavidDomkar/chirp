@@ -5,8 +5,8 @@ import { NuxtAuthHandler } from '#auth';
 export default NuxtAuthHandler({
   secret: useRuntimeConfig().authSecret,
   pages: {
-    newUser: '/auth/signup',
-    signIn: '/auth/signin',
+    newUser: '/auth/sign-up',
+    signIn: '/auth/sign-in',
   },
   callbacks: {
     jwt({ token, user }) {
@@ -24,12 +24,10 @@ export default NuxtAuthHandler({
   providers: [
     // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
     CredentialsProvider.default({
-      name: 'username and password',
-      credentials: {
-        username: { label: 'Username', type: 'text' },
-        password: { label: 'Password', type: 'password' },
-      },
-      authorize: async (credentials: any) => {
+      authorize: async (credentials: {
+        username?: string;
+        password?: string;
+      }) => {
         if (!credentials?.username || !credentials?.password) {
           return null;
         }
@@ -44,7 +42,10 @@ export default NuxtAuthHandler({
           return null;
         }
 
-        const passwordValid = await compare(credentials.password.trim(), user.password);
+        const passwordValid = await compare(
+          credentials.password.trim(),
+          user.password,
+        );
 
         if (!passwordValid) {
           return null;
