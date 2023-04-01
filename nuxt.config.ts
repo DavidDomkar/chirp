@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     authSecret: '', // Set by NUXT_AUTH_SECRET environment variable
   },
   auth: {
-    origin: 'http://localhost:3000',
+    origin: process.env.AUTH_ORIGIN,
     defaultProvider: 'credentials',
   },
   colorMode: {
