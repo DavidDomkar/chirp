@@ -54,7 +54,7 @@ const onSubmit = async (values: typeof signUpSchema._type) => {
 .card.w-96.max-w-full.shadow-2xl.bg-base-100
   .card-body
     h3.text-3xl.text-center.font-black Sign Up
-    Form.flex.flex-col.gap-2(
+    Form.flex.flex-col.gap-4.mt-6(
       v-slot='{ isSubmitting }'
       :validation-schema='validationSchema'
       @submit='onSubmit'
