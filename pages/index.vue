@@ -6,9 +6,9 @@ definePageMeta({
   middleware: 'auth',
 });
 
-const { data: posts, pending, refresh } = await useFetch<Post[]>('/api/posts');
+const { data: session, signOut } = await useSession();
 
-const { signOut } = useSession();
+const { data: posts, pending, refresh } = await useFetch<Post[]>('/api/posts');
 
 const onSignOut = async () => {
   await signOut({
@@ -19,7 +19,9 @@ const onSignOut = async () => {
 
 <template lang="pug">
 .w-full.px-8.flex.flex-col.gap-8
+  h1.text-4xl.font-bold Welcome, {{ session.user.name }}!
   NewPostCard(@on-new-post='refresh')
+  h2.text-2xl.font-bold Your Feed
   article.card.card-compact.shadow-2xl.bg-base-100(
     v-for='post in posts'
     :key='post.id'
