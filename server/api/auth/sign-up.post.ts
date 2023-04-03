@@ -1,7 +1,8 @@
 import { hash } from 'bcrypt';
+import { H3Event } from 'h3';
 import { useValidatedBody, z } from 'h3-zod';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event: H3Event) => {
   const { username, password } = await useValidatedBody(event, signUpSchema);
 
   const user = await prisma.user.findUnique({
@@ -27,5 +28,5 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  sendNoContent(event, 201);
+  return sendNoContent(event, 201);
 });

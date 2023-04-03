@@ -12,8 +12,9 @@ defineProps<{
 <template lang="pug">
 Field(:name='name' v-slot='{ field, errorMessage }')
   .form-control
-    label.label
-      span.label-text(:class='{ "text-error": errorMessage }') {{ label }}
+    if label
+      label.label
+        span.label-text(:class='{ "text-error": errorMessage }') {{ label }}
     input.input.input-bordered(
       v-bind='field'
       :type='type ?? "text"'

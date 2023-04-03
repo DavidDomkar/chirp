@@ -32,3 +32,11 @@ export const signUpFormSchema = signUpSchema
       });
     }
   });
+
+export const createPostSchema = z.object({
+  content: z
+    .string()
+    .trim()
+    .nonempty('Content cannot be empty.')
+    .max(400, 'Content can be maximum of 400 characters long.'),
+});
