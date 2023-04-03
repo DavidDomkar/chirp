@@ -30,6 +30,7 @@
     "nuxt": "^3.3.2",
     "nuxt-icon": "^0.3.3",
     "prettier": "^2.8.7",
+    "prettier-plugin-prisma": "^4.12.0",
     "prisma": "^4.12.0",
     "typescript": "^5.0.3",
     "vite-plugin-pug": "^0.3.2"

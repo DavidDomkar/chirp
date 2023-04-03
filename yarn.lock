@@ -1785,6 +1785,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/prisma-fmt-wasm@npm:4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7":
+  version: 4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7
+  resolution: "@prisma/prisma-fmt-wasm@npm:4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7"
+  checksum: 8afdf29fcab2313a0952c2c2931e67ded5f60c50d4b4da80c2858f99ae97c95fd8f781e0c96eb99d34c9a0b5b68796b658b873ee9bbb515e8d81afa1490829f8
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-alias@npm:^4.0.3":
   version: 4.0.3
   resolution: "@rollup/plugin-alias@npm:4.0.3"
@@ -3495,6 +3502,7 @@ __metadata:
     nuxt-icon: ^0.3.3
     nuxt-snackbar: ^1.0.2
     prettier: ^2.8.7
+    prettier-plugin-prisma: ^4.12.0
     prisma: ^4.12.0
     typescript: ^5.0.3
     vee-validate: ^4.8.4
@@ -9371,6 +9379,17 @@ __metadata:
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
   checksum: cd192ec0d0a8e4c6da3bb80e4f62afe336df3f76271ac6deb0e6a36187133b6073a19e9727a1ff108cd8b9982e4768850d413baa71214dd80c7979617dca827a
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-prisma@npm:^4.12.0":
+  version: 4.12.0
+  resolution: "prettier-plugin-prisma@npm:4.12.0"
+  dependencies:
+    "@prisma/prisma-fmt-wasm": 4.12.0-67.659ef412370fa3b41cd7bf6e94587c1dfb7f67e7
+  peerDependencies:
+    prettier: ">=2"
+  checksum: a2de4c217c96413811236dc38332f2996e103e4e7b431bec3df37c1467034aac67102006943a9397d70f132f67c92605ae474fd83727bf155e9f2e3a54b3116d
   languageName: node
   linkType: hard
 

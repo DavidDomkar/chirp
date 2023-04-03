@@ -15,7 +15,7 @@ export const signUpSchema = z.object({
 });
 
 export const signInSchema = z.object({
-  username: z.string().trim().toLowerCase().nonempty('This field is required'),
+  username: z.string().trim().nonempty('This field is required'),
   password: z.string().trim().nonempty('This field is required'),
 });
 
@@ -33,7 +33,7 @@ export const signUpFormSchema = signUpSchema
     }
   });
 
-export const createPostSchema = z.object({
+export const postSchema = z.object({
   content: z
     .string()
     .trim()
