@@ -8,7 +8,7 @@ const emit = defineEmits<{
   (e: 'onNewPost'): Promise<void>;
 }>();
 
-const { data } = await useSession();
+const { data: session } = await useSession();
 
 const snackbar = useSnackbar();
 
@@ -44,10 +44,10 @@ const onSubmit = async (
 .card.card-compact.shadow-2xl.bg-base-100
   .card-body
     .flex.items-center
-      Avatar(:username='data.user.username')
+      Avatar(:username='session.user.username')
       .flex.flex-col
-        h2.text-xl.font-bold.ml-2 {{ data.user.name }}
-        h3.text-md.ml-2.text-gray-500 @{{ data.user.username }}
+        h2.text-xl.font-bold.ml-2 {{ session.user.name }}
+        h3.text-md.ml-2.text-gray-500 @{{ session.user.username }}
     Form.mt-2.flex.flex-col.gap-4(
       v-slot='{ isSubmitting, resetForm }'
       :validation-schema='validationSchema'
