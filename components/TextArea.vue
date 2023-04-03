@@ -14,11 +14,12 @@ Field(
   :validate-on-blur='false'
   :validate-on-change='false'
 )
-  textarea.textarea.textarea-bordered.resize-none.w-full.h-24(
-    v-bind='field'
-    :placeholder='placeholder'
-    :class='`${errorMessage ? "border-error" : "focus:border-primary"} focus:!outline-none`'
-  )
-  label.label(v-if='errorMessage')
-    ErrorMessage.label-text-alt.text-error(:name='name')
+  .form-control
+    textarea.textarea.textarea-bordered.resize-none.w-full.h-24(
+      v-bind='field'
+      :placeholder='placeholder'
+      :class='`${errorMessage ? "border-error" : "focus:border-primary"} focus:!outline-none`'
+    )
+    label.label(v-if='errorMessage')
+      ErrorMessage.label-text-alt.text-error(:name='name')
 </template>

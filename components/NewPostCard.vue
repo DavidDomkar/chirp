@@ -8,6 +8,8 @@ const emit = defineEmits<{
   (e: 'onNewPost'): Promise<void>;
 }>();
 
+const { data } = await useSession();
+
 const snackbar = useSnackbar();
 
 const validationSchema = toFormValidator(createPostSchema);
@@ -41,8 +43,12 @@ const onSubmit = async (
 <template lang="pug">
 .card.card-compact.shadow-2xl.bg-base-100
   .card-body
-    h2.text-xl.font-bold New Post
-    Form(
+    .flex.items-center
+      Avatar(:username='data.user.username')
+      .flex.flex-col
+        h2.text-xl.font-bold.ml-2 {{ data.user.name }}
+        h3.text-md.ml-2.text-gray-500 @{{ data.user.username }}
+    Form.mt-2.flex.flex-col.gap-4(
       v-slot='{ isSubmitting, resetForm }'
       :validation-schema='validationSchema'
       @submit='onSubmit'
