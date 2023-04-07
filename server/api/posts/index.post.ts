@@ -16,11 +16,12 @@ export default defineEventHandler(async (event: H3Event) => {
 
   const post = await prisma.post.create({
     data: {
-      // @ts-expect-error
       authorId: session.user.id,
       content,
     },
   });
+
+  setResponseStatus(event, 201);
 
   return post;
 });

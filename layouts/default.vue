@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: session, signOut } = await useSession();
+const { data: session, signOut } = await useAuth();
 
 const onSignOut = async () => {
   await signOut({

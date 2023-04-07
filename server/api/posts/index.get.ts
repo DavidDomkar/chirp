@@ -18,6 +18,26 @@ export default defineEventHandler(async (event: H3Event) => {
           username: true,
         },
       },
+      likes: {
+        select: {
+          user: {
+            select: {
+              name: true,
+              username: true,
+            },
+          },
+        },
+      },
+      dislikes: {
+        select: {
+          user: {
+            select: {
+              name: true,
+              username: true,
+            },
+          },
+        },
+      },
     },
     orderBy: {
       createdAt: 'desc',

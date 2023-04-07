@@ -11,52 +11,52 @@ generator client {
 }
 
 model User {
-  id            String         @id @default(auto()) @map("_id") @db.ObjectId
-  username      String         @unique
-  password      String         @map("hashedPassword")
-  name          String
-  posts         Post[]
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @default(now()) @updatedAt
-  likedPosts    LikedPost[]
-  dislikedPosts DislikedPost[]
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  username  String    @unique
+  password  String    @map("hashedPassword")
+  name      String
+  posts     Post[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+  likes     Like[]
+  dislikes  Dislike[]
 
   @@map("users")
 }
 
 model Post {
-  id         String         @id @default(auto()) @map("_id") @db.ObjectId
-  content    String
-  author     User?          @relation(fields: [authorId], references: [id])
-  authorId   String         @db.ObjectId
-  createdAt  DateTime       @default(now())
-  updatedAt  DateTime       @default(now()) @updatedAt
-  likedBy    LikedPost[]
-  dislikedBy DislikedPost[]
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  author    User?     @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: Restrict)
+  authorId  String    @db.ObjectId
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+  likes     Like[]
+  dislikes  Dislike[]
 
   @@map("posts")
 }
 
-model LikedPost {
+model Like {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  post      Post?    @relation(fields: [postId], references: [id])
+  post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Restrict)
   postId    String   @db.ObjectId
-  user      User?    @relation(fields: [userId], references: [id])
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Restrict)
   userId    String   @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 
-  @@map("likedPosts")
+  @@map("likes")
 }
 
-model DislikedPost {
+model Dislike {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  post      Post?    @relation(fields: [postId], references: [id])
+  post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Restrict)
   postId    String   @db.ObjectId
-  user      User?    @relation(fields: [userId], references: [id])
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Restrict)
   userId    String   @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 
-  @@map("dislikedPosts")
+  @@map("dislikes")
 }
