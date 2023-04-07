@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn {
-  @apply border-none;
+  @apply border-none focus:!outline-none;
 }
 
 .btn-primary {

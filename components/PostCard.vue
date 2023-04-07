@@ -32,6 +32,8 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'update:modelValue', model?: PostCardModel): void;
+  (e: 'onCreate'): void;
+  (e: 'onDelete'): void;
 }>();
 
 const snackbar = useSnackbar();
@@ -107,6 +109,8 @@ const onSubmit = async (
         dislikes: [],
       });
 
+      emit('onCreate');
+
       resetForm();
     }
 
@@ -141,6 +145,8 @@ const onDelete = async () => {
     });
 
     emit('update:modelValue', undefined);
+
+    emit('onDelete');
   } catch (error) {
     const { statusMessage } = error as FetchError;
 
