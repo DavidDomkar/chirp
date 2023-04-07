@@ -12,9 +12,7 @@ const { data: stats, refresh: refreshStats } = await useFetch(
   `/api/stats/${session.value!.user.id}}`,
 );
 
-const { data: posts, refresh: refreshPosts } = await useFetch<Post[]>(
-  '/api/posts',
-);
+const { data: posts, refresh: refreshPosts } = await useFetch('/api/posts');
 
 const refresh = async () => {
   await Promise.all([refreshPosts(), refreshStats()]);
@@ -30,7 +28,7 @@ const onSignOut = async () => {
 <template lang="pug">
 .w-full.flex.justify-center.items-start.pt-8
   StatsCard(:stats='stats')
-  .w-full.px-8.flex.flex-col.gap-8
+  .w-full.px-8.flex.flex-col.gap-8.pb-8
     h1.text-4xl.font-bold Welcome, {{ session.user.name }}!
     PostCard(:session='session' @onCreate='refresh')
     h2.text-2xl.font-bold(v-if='posts.length > 0') Latest Posts
@@ -41,8 +39,5 @@ const onSignOut = async () => {
         v-model='posts[index]'
         @onDelete='refreshStats'
       )
-  .card.shadow-2xl.bg-base-100.sticky.top-0.z-10(
-    class='top-[112px] min-w-[300px] h-[640px]'
-  )
-    .card-body
+  PopularCard
 </template>

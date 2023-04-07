@@ -3,7 +3,7 @@
   .input-group
     input.input.input-bordered.w-full(
       type='text'
-      placeholder='Search Chirp'
+      placeholder='Search people...'
       class='focus:input-primary focus:!outline-none'
     )
     button.btn.btn-primary.btn-square
