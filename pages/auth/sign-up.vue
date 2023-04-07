@@ -9,7 +9,7 @@ definePageMeta({
 
 const snackbar = useSnackbar();
 
-const { signIn } = useSession();
+const { signIn } = useAuth();
 
 const validationSchema = toFormValidator(signUpFormSchema);
 
