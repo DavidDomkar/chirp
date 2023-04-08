@@ -20,7 +20,7 @@ defineProps<{
     .stat-figure
       Avatar(:username='stats.user.username')
     .stat-value.text-2xl {{ stats.user.name }}
-    .stat-title @{{ stats.user.username }}
+    NuxtLink.stat-title(:to='`/users/${stats.user.username}`' class='hover:underline') @{{ stats.user.username }}
   .stat
     .stat-figure
       Icon(name='material-symbols:post-add-rounded' size='32')

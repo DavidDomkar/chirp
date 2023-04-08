@@ -279,7 +279,10 @@ article.card.card-compact.shadow-2xl.bg-base-100
       )
       .flex.flex-col
         h2.text-xl.font-bold.ml-2 {{ modelValue ? modelValue.author.name : session.user.name }}
-        h3.text-md.ml-2.text-gray-500 @{{ modelValue ? modelValue.author.username : session.user.username }}
+        NuxtLink.text-md.ml-2.text-gray-500(
+          :to='`/users/${modelValue ? modelValue.author.username : session.user.username}`'
+          class='hover:underline'
+        ) @{{ modelValue ? modelValue.author.username : session.user.username }}
       .flex-1
       .flex.gap-2.justify-end(
         v-if='modelValue && modelValue.authorId === session.user.id'
