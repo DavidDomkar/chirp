@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Field, Form, ErrorMessage } from 'vee-validate';
+import { Form } from 'vee-validate';
 import type { FormActions } from 'vee-validate';
 import { toFormValidator } from '@vee-validate/zod';
 import { FetchError } from 'ofetch';
@@ -287,9 +287,14 @@ article.card.card-compact.shadow-2xl.bg-base-100
         button.btn.btn-sm(
           @click='onEdit'
           :key='isEditting ? "edit" : "cancel"'
+          class='hover:bg-base-300'
         )
           Icon(:name='isEditting ? "fa-solid:arrow-right" : "fa-solid:pen"')
-        button.btn.btn-sm(v-if='!isEditting' @click='onDelete')
+        button.btn.btn-sm(
+          v-if='!isEditting'
+          @click='onDelete'
+          class='hover:bg-base-300'
+        )
           Icon(name='fa-solid:trash-alt')
     Form.flex.flex-col.gap-4(
       ref='form'

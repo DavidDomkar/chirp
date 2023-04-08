@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-const { data: users, refresh: refreshPosts } = await useFetch(
-  '/api/users/popular',
-);
+const { data: users, refresh: refreshPosts } = await useFetch('/api/popular');
 </script>
 
 <template lang="pug">
@@ -10,10 +8,11 @@ const { data: users, refresh: refreshPosts } = await useFetch(
 )
   .card-body.gap-4(class='!px-6 !pb-6')
     h2.card-title.text-2xl Popular Users
-    .flex.items-center(
+    NuxtLink.flex.items-center.rounded-lg.transition-colors.duration-200(
       v-for='user in users'
       :key='user.id'
-      class='hover:bg-base-200 hover:cursor-pointer'
+      :to='`/users/${user.username}`'
+      class='hover:bg-base-300'
     )
       Avatar(:username='user.username')
       .flex-1.flex.flex-col

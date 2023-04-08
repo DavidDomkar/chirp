@@ -6,7 +6,8 @@ export const signUpSchema = z.object({
     .trim()
     .toLowerCase()
     .nonempty('This field is required')
-    .min(3, { message: 'Username must be at least 3 characters long!' }),
+    .min(3, { message: 'Username must be at least 3 characters long!' })
+    .transform((value) => value.replace(/\s+/g, '')),
   password: z
     .string()
     .trim()
@@ -39,4 +40,8 @@ export const postSchema = z.object({
     .trim()
     .nonempty('Content cannot be empty.')
     .max(400, 'Content can be maximum of 400 characters long.'),
+});
+
+export const searchSchema = z.object({
+  q: z.string().trim().nonempty('This field is required'),
 });

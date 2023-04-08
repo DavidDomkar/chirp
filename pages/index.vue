@@ -9,7 +9,7 @@ definePageMeta({
 const { data: session, signOut } = await useAuth();
 
 const { data: stats, refresh: refreshStats } = await useFetch(
-  `/api/stats/${session.value!.user.id}}`,
+  `/api/stats/${session.value?.user.id}`,
 );
 
 const { data: posts, refresh: refreshPosts } = await useFetch('/api/posts');

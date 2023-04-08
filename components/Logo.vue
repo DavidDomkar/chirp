@@ -11,5 +11,6 @@ h1.font-display.text-8xl.text-transparent.bg-clip-text.leading-tight.bg-gradient
 ) CHIRP
 h1.font-display.text-4xl.text-transparent.bg-clip-text.leading-tight.bg-gradient-to-r.from-primary.to-secondary(
   v-if='small'
-) CHIRP
+)
+  NuxtLink(to='/') CHIRP
 </template>
