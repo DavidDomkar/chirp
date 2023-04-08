@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+const { signOut } = await useAuth();
+
+const onSignOut = async () => {
+  await signOut({
+    callbackUrl: '/auth/sign-in',
+  });
+};
+</script>
+
 <template lang="pug">
 nav.card.card-compact.shadow-2xl.rounded-t-none.bg-base-100.w-full.sticky.top-0.z-10(
   class='h-[80px]'

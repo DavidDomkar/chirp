@@ -24,7 +24,7 @@ const users = computed(() => results.value?.users);
 <template lang="pug">
 .w-full.flex.justify-center.items-start.pt-8
   StatsCard.hidden(:stats='stats' class='md:block')
-  .w-full.flex.flex-col.gap-8.pb-8(class='xl:pr-8 md:pl-8')
+  .w-full.flex.flex-col.gap-8.pb-8(class='xl:pr-8 md:pl-8 mb-[52px]')
     h1.text-4xl.font-bold {{ users.length }} {{ users.length === 1 ? 'Result' : 'Results' }} found
     NuxtLink.card.card-compact.shadow-2xl.bg-base-100.transition-colors.duration-200(
       v-for='user in users'

@@ -30,7 +30,7 @@ const onSignOut = async () => {
 <template lang="pug">
 .w-full.flex.justify-center.items-start.pt-8
   StatsCard.hidden(:stats='stats' class='md:block')
-  .w-full.flex.flex-col.gap-8.pb-8(class='xl:pr-8 md:pl-8')
+  .w-full.flex.flex-col.gap-8.pb-8(class='xl:pr-8 md:pl-8 mb-[52px]')
     template(v-if='error?.statusCode === 404')
       h1.text-4xl.font-bold 404: User not found
       h2.text-xl.font-bold.text-center.mt-8 This user does not exist
