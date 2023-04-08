@@ -4,7 +4,6 @@ export const signUpSchema = z.object({
   username: z
     .string()
     .trim()
-    .toLowerCase()
     .nonempty('This field is required')
     .min(3, { message: 'Username must be at least 3 characters long!' })
     .transform((value) => value.replace(/\s+/g, '')),
