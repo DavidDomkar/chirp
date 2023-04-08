@@ -1,8 +1,4 @@
 <script lang="ts" setup>
-definePageMeta<{
-  layout: 'default';
-}>();
-
 defineProps<{
   error: any;
 }>();
