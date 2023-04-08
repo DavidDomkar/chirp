@@ -14,7 +14,7 @@ defineProps<{
 
 <template lang="pug">
 .stats.stats-vertical.shadow-2xl.bg-base-100.sticky.top-0.z-10(
-  class='top-[112px] min-w-[300px]'
+  class='top-[112px] min-w-[300px] w-[300px]'
 )
   .stat
     .stat-figure

@@ -27,8 +27,8 @@ const onSignOut = async () => {
 
 <template lang="pug">
 .w-full.flex.justify-center.items-start.pt-8
-  StatsCard(:stats='stats')
-  .w-full.px-8.flex.flex-col.gap-8.pb-8
+  StatsCard.hidden(:stats='stats' class='md:block')
+  .w-full.flex.flex-col.gap-8.pb-8(class='xl:pr-8 md:pl-8')
     h1.text-4xl.font-bold Welcome, {{ session.user.name }}!
     PostCard(:session='session' @onCreate='refresh')
     h2.text-2xl.font-bold(v-if='posts.length > 0') Latest Posts
@@ -39,5 +39,5 @@ const onSignOut = async () => {
         v-model='posts[index]'
         @onDelete='refreshStats'
       )
-  PopularCard
+  PopularCard.hidden(class='xl:block')
 </template>
