@@ -3,5 +3,11 @@
   "extends": "./.nuxt/tsconfig.json",
   "vueCompilerOptions": {
     "plugins": ["@volar/vue-language-plugin-pug"]
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
   }
 }

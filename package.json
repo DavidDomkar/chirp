@@ -7,7 +7,11 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare && prisma generate",
+    "seed": "prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "devDependencies": {
     "@nuxt/devtools": "^0.3.2",
@@ -32,6 +36,7 @@
     "prettier": "^2.8.7",
     "prettier-plugin-prisma": "^4.12.0",
     "prisma": "^4.12.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.3",
     "vite-plugin-pug": "^0.3.2"
   },
