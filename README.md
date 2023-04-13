@@ -1,20 +1,34 @@
-# Nuxt 3 Minimal Starter
+# Chirp
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Chirp is a social media platform built with Nuxt.js, Prisma, and MongoDB.
+
+Live version: https://chirp-gamma-five.vercel.app/
+GitHub: https://github.com/DavidDomkar/chirp
+
+## Environment Variables
+
+Create a `.env` file in the root directory of the project and add the following environment variables:
+
+```
+AUTH_ORIGIN=<authentication origin (http://localhost:3000 for local development)>
+NUXT_AUTH_SECRET=<32 characters long secure random string>
+DATABASE_URL=<mongodb connection string>
+```
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
 yarn install
+```
 
-# npm
-npm install
+## Seed the database
 
-# pnpm
-pnpm install
+This will seed the database with the script located in `prisma/seed.ts`:
+
+```bash
+yarn seed
 ```
 
 ## Development Server
@@ -22,7 +36,7 @@ pnpm install
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ## Production
@@ -30,13 +44,11 @@ npm run dev
 Build the application for production:
 
 ```bash
-npm run build
+yarn build
 ```
 
 Locally preview production build:
 
 ```bash
-npm run preview
+yarn preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
