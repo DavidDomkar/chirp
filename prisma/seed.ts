@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { hash } from 'bcrypt';
 
 const prisma = new PrismaClient();
 
@@ -10,7 +11,7 @@ const main = async () => {
     data: {
       name: 'Foo',
       username: 'foo',
-      password: 'foo123456',
+      password: await hash('foo123456', 12),
       posts: {
         createMany: {
           data: [
@@ -33,7 +34,7 @@ const main = async () => {
     data: {
       name: 'Bar',
       username: 'bar',
-      password: 'bar123456',
+      password: await hash('bar123456', 12),
       posts: {
         createMany: {
           data: [
