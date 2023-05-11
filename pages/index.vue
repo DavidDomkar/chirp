@@ -6,7 +6,7 @@ definePageMeta({
   middleware: 'auth',
 });
 
-const { data: session, signOut } = await useAuth();
+const { data: session, signOut } = useAuth();
 
 const { data: stats, refresh: refreshStats } = await useFetch(
   `/api/stats/${session.value?.user.id}`,

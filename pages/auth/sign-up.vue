@@ -29,6 +29,7 @@ const onSubmit = async (values: typeof signUpSchema._type) => {
       message: statusMessage ?? 'Something went wrong',
       type: 'error',
     });
+
     return;
   }
 
